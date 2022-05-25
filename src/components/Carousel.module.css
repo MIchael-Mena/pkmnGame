@@ -1,0 +1,143 @@
+.container {
+  	height: 500px;
+  	margin: 0;
+  	display: grid;
+  	grid-template-rows: 100px 100px 100px 100px 100px;
+  	grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  	align-items: center;
+  	justify-items: center;
+	overflow: visible;
+  }
+
+  .carousel {
+	background-color: rgb(49, 49, 49) ;
+	border-radius: 1rem;
+  	overflow: hidden;
+  	grid-row: 3 /4;
+  	grid-column: 1 /8;
+  	width: 70vw;
+  	height: 450px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	transform-style: preserve-3d;
+  	perspective: 600px;
+  	--cards: 7;
+  	/*       --middle: 3; */
+  	--position: 1;
+  	pointer-events: none;
+  }
+
+  .card {
+  	position: absolute;
+  	overflow: visible;
+  	--r: calc(var(--position) - var(--offset));
+  	--abs: max(calc(var(--r) * -1), var(--r));
+  	transition: all 0.25s linear;
+  	transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+  	z-index: calc((var(--position) - var(--abs)));
+  }
+
+  .navigationArrow {
+  	grid-row: 5/6;
+  	grid-column: 5/6;
+  	background-color: orangered;
+  	border-radius: 5rem;
+  	position: relative;
+  	top: 50%;
+  	left: 50%;
+  	width: 10vmin;
+  	height: 5vmin;
+  	transform: translate(-50%, -50%);
+  }
+
+  .arrow {
+  	position: absolute;
+  	top: 50%;
+  	width: 3vmin;
+  	height: 3vmin;
+  	background: transparent;
+  	border-top: 1vmin solid white;
+  	border-right: 1vmin solid white;
+  	box-shadow: 0 0 0 lightgray;
+  	transition: all 200ms ease;
+  }
+
+  .arrow.left {
+  	left: 0;
+  	transform: translate3d(0, -50%, 0) rotate(-135deg);
+  }
+
+  .arrow:disabled {
+  	background-color: gray;
+  }
+
+  .arrow.right {
+  	right: 0;
+  	transform: translate3d(0, -50%, 0) rotate(45deg);
+  }
+
+  .arrow:hover {
+  	border-color: orange;
+  	box-shadow: 0.5vmin -0.5vmin 0 white;
+  }
+
+  .arrow:before {
+  	/*  for better hit area */
+  	content: " ";
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-40%, -60%) rotate(45deg);
+  	width: 200%;
+  	height: 200%;
+  }
+
+  .select{
+	padding: 5px;
+	background-color: rgb(49, 49, 49);
+	position: relative;
+	bottom: 25px;
+	border-radius: 1rem;
+
+  }
+
+  .select:hover{
+	box-shadow:  0.2vmin -0.2vmin 0 grey;
+  }
+
+  .selectText{
+	color: white;
+	font-weight: bold;
+	font-size: medium;
+	font-family: Arial;
+  }
+
+  .centerElement{
+	grid-column: 4/5;
+	grid-row: 3/4;
+  }
+
+  
+
+
+
+
+.titleCarousel {
+    text-align: center;
+    color: whitesmoke;
+	font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.titleContainer{
+    position: relative;
+	border-top-right-radius: 3rem;
+	border-top-left-radius:3rem;
+	grid-column: 4/5;
+	grid-row: 1;
+	z-index: 1;
+	bottom: 35px;
+    background-color: black;
+    width: 30vw;
+}

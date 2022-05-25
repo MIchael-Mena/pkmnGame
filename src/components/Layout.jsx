@@ -5,6 +5,7 @@ const Layout = ({ children }) => {
     <div
       style={{
         alignItems: "center",
+        alignContent: "center",
         display: "flex",
         flexDirection: "column",
       }}
